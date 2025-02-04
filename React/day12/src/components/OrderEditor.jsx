@@ -1,5 +1,13 @@
 import { useRef, useState } from "react";
 
+// 초기화용
+// 리렌더링할때마다 재생성되면 최적화에 안좋아서 외부로 빼둠
+const initialOrder = {
+  menu: "",
+  address: "",
+  request: "",
+};
+
 const OrderEditor = () => {
   const addressRef = useRef(null);
   const requestRef = useRef(null);
@@ -9,13 +17,6 @@ const OrderEditor = () => {
     address: "",
     request: "",
   });
-
-  // 초기화용
-  const initialOrder = {
-    menu: "",
-    address: "",
-    request: "",
-  };
 
   const onChangeOrder = (e) => {
     setOrder({
