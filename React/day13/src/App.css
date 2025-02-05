@@ -18,4 +18,8 @@ section {
   margin: 15px 0;
   background-color: #f2f2f2;
   border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
