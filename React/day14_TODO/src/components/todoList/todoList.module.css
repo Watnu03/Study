@@ -1,0 +1,19 @@
+.todoList > h3 {
+  font-size: 1.17em;
+  font-weight: bold;
+  margin: 23px 0;
+}
+
+.todoList > input[type="text"] {
+  flex: 1;
+  width: 100%;
+  padding: 15px 3px;
+  border: none;
+  border-bottom: 1px solid rgb(220, 220, 220);
+  outline: none;
+}
+
+.todoList > input[type="text"]:focus {
+  border-bottom-color: #2593ff;
+  outline: none;
+}

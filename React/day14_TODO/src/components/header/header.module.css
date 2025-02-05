@@ -1,0 +1,11 @@
+.headerSubTitle {
+  font-size: 1.17em;
+  font-weight: bold;
+}
+
+.headerTitle {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 1em 0;
+  color: #2593ff;
+}

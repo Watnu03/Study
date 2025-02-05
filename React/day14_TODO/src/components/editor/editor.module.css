@@ -1,0 +1,28 @@
+.todoEditor {
+  flex-direction: row;
+  gap: 10px;
+}
+
+.todoEditor > input[type="text"] {
+  flex: 1;
+  padding: 15px;
+  border: 1px solid rgb(220, 220, 220);
+  border-radius: 5px;
+}
+
+.todoEditor > input[type="text"]:focus {
+  border-color: #2593ff;
+  outline: none;
+}
+
+.todoEditor > .todo_add {
+  cursor: pointer;
+  width: 80px;
+  border: none;
+  background-color: #2593ff;
+  color: #fff;
+  border-radius: 5px;
+}
+.todoEditor > .todo_add:hover {
+  background-color: #1f7ad5;
+}

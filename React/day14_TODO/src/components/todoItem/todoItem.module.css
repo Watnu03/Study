@@ -1,0 +1,64 @@
+.todoItem {
+  width: 100%;
+  min-height: 45px;
+  padding: 20px 10px;
+  border-bottom: 1px solid #dcdcdc;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+}
+
+.item > p {
+  text-align: left;
+}
+.item:first-child {
+  flex: 1;
+}
+
+.todo {
+  margin: 0 20px;
+  word-wrap: break-word; /* 단어가 길 경우 강제 줄바꿈 */
+  word-break: break-all; /* 긴 단어도 중간에서 강제 줄바꿈 */
+  white-space: normal; /* 줄바꿈 허용 */
+}
+
+.todo__yet {
+  color: black;
+}
+
+.todo__done {
+  text-decoration: line-through;
+  color: red;
+}
+
+.date {
+  width: 80px;
+  margin: 0 5px;
+  font-size: 14px;
+  color: gray;
+
+  flex-shrink: 0; /* 날짜 크기 고정 */
+}
+
+.item > .delete_btn {
+  width: 45px;
+  height: 30px;
+  padding: 0 3px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  color: gray;
+  background-color: #f0f0f0;
+  cursor: pointer;
+
+  flex-shrink: 0; /* 버튼 크기 고정 */
+}
+.item > .delete_btn:hover {
+  background-color: #dcdcdc;
+}
