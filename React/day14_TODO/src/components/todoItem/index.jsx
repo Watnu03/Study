@@ -1,27 +1,32 @@
 import React from "react";
 import styles from "./todoItem.module.css";
-import { useState } from "react";
 
-const TodoItem = ({ id, text, isDone, date }) => {
-  const [isChecked, setIsChecked] = useState(isDone);
+const TodoItem = ({ id, content, isDone, date, onUpdate, onDelete }) => {
+  const onChangeCheck = () => {
+    onUpdate(id);
+  };
 
-  const handleCheck = () => {
-    setIsChecked(!isChecked);
+  const onDeleteTodo = () => {
+    onDelete(id);
   };
 
   return (
     <div className={styles.todoItem}>
       <div className={styles.item}>
-        <input type="checkbox" checked={isChecked} onChange={handleCheck} />
+        <input type="checkbox" checked={isDone} onChange={onChangeCheck} />
         <p
-          className={`${styles.todo} ${isChecked ? styles.todo__done : styles.todo__yet}`}
+          className={`${styles.todo} ${
+            isDone ? styles.todo__done : styles.todo__yet
+          }`}
         >
-          {text}
+          {content}
         </p>
       </div>
       <div className={styles.item}>
-        <p className={styles.date}>{date}</p>
-        <button className={styles.delete_btn}>삭제</button>
+        <p className={styles.date}>{new Date(date).toLocaleDateString()}</p>
+        <button className={styles.delete_btn} onClick={onDeleteTodo}>
+          삭제
+        </button>
       </div>
     </div>
   );

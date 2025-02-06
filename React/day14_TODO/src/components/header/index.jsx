@@ -19,7 +19,9 @@ const MONTHS = [
 
 const Header = () => {
   const date = new Date();
-  const currentDate = `${WEEKS[date.getDay()]} ${MONTHS[date.getMonth()]} ${date.getDate()} ${date.getFullYear()}`;
+  const currentDate = `${WEEKS[date.getDay()]} ${
+    MONTHS[date.getMonth()]
+  } ${date.getDate()} ${date.getFullYear()}`;
 
   return (
     <section>
