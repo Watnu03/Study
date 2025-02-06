@@ -1,6 +1,6 @@
 import "./App.css";
 
-import { useRef, useState } from "react";
+import { useReducer, useRef } from "react";
 
 import Editor from "./components/editor";
 import Header from "./components/header";
@@ -12,48 +12,53 @@ const mockTodos = [
   { id: 2, content: "할 일 2", date: new Date().getTime(), isDone: false },
 ];
 
+function reducer(state, action) {
+  switch (action.type) {
+    case "CREATE":
+      return [action.data, ...state];
+    case "UPDATE":
+      return state.map((todo) =>
+        todo.id === action.targetId ? { ...todo, isDone: !todo.isDone } : todo
+      );
+    case "DELETE":
+      return state.filter((todo) => todo.id !== action.targetId);
+    default:
+      return state;
+  }
+}
+
 function App() {
   const idRef = useRef(3);
-  const [todos, setTodos] = useState(mockTodos);
-
-  //새로운 todo item
-  const createTodo = (content) => {
-    const newTodo = {
-      //idRef를 이용해서 중복되지않게 id 생성
-      id: idRef.current++,
-      content: content,
-      date: new Date().getTime(),
-      isDone: false,
-    };
-    return newTodo;
-  };
+  const [todos, dispatch] = useReducer(reducer, mockTodos);
 
   //새로운 todo 생성
   const onCreate = (content) => {
-    setTodos((prevTodos) => [...prevTodos, createTodo(content)]);
+    dispatch({
+      type: "CREATE",
+      data: {
+        //idRef를 이용해서 중복되지않게 id 생성
+        id: idRef.current++,
+        content: content,
+        date: new Date().getTime(),
+        isDone: false,
+      },
+    });
   };
 
   //기존 todo 업데이트
   const onUpdate = (targetId) => {
-    const updatedTodos = todos.map((todo) => {
-      return (
-        /*NOTE: todo update => 삼항연산자
-          1. todo.id===targetId가 같다면 {}객체를 아니라면 todo 를 그대로 반환한다
-          2-1. {...todo} 는 기존 todo 객체를 복사
-          2-2. isDone: !todo.isDone 은 기존 idDone 값을 반대로 업데이트
-        */
-        todo.id === targetId ? { ...todo, isDone: !todo.isDone } : todo
-      );
+    dispatch({
+      type: "UPDATE",
+      targetId: targetId,
     });
-
-    setTodos(updatedTodos);
   };
 
+  //기존 todo 삭제
   const onDelete = (targetId) => {
-    const deletedTodos = todos.filter((todo) => {
-      return todo.id !== targetId;
+    dispatch({
+      type: "DELETE",
+      targetId: targetId,
     });
-    setTodos(deletedTodos);
   };
 
   return (
