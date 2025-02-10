@@ -1,3 +1,11 @@
+/*TODO: day16-연락처 앱 만들기
+  [x]필수) 새로운 연락처를 등록할 수 있습니다.
+  [x]필수) 등록된 연락처는 Contact List에 리스트 형태로 렌더링 됩니다.
+  [x]필수) 등록된 연락처를 삭제할 수 있습니다.
+  [x]선택) 새로운 연락처를 추가하는 ContactEditor 컴포넌트에서 빈 입력을 방지하세요
+  [x]선택) 연락처 리스트를 저장할 때 useState대신 useReducer를 활용하세요
+*/
+
 import "./App.css";
 
 import { useReducer, useRef } from "react";
