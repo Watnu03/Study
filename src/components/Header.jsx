@@ -1,12 +1,18 @@
-import Button from "./DefaultButton";
+import Button from "./Button";
 import React from "react";
 
-const Header = () => {
+const Header = ({ left, leftStatus, title, right, rightStatus }) => {
   return (
-    <div>
-      <Button value={"<"} />
-      <span>2025년 2월</span>
-      <Button value={">"} />
+    <div className="header">
+      <div className="header_left">
+        <Button text={left} status={leftStatus} />
+      </div>
+      <div className="header_center">{title}</div>
+      {right ? (
+        <div className="header_right">
+          <Button text={right} status={rightStatus} />
+        </div>
+      ) : null}
     </div>
   );
 };

@@ -1,0 +1,29 @@
+.button {
+  background-color: #ececec;
+  color: #000;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 15px;
+  white-space: nowrap;
+}
+.button:hover {
+  background-color: #cdcdcd;
+}
+
+.button-create {
+  background-color: #64c964;
+  color: #fff;
+}
+.button-create:hover {
+  background-color: #448a44;
+}
+
+.button-delete {
+  background-color: #fd565f;
+  color: #fff;
+}
+.button-delete:hover {
+  background-color: #b23d43;
+}
