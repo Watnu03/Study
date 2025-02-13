@@ -1,0 +1,44 @@
+@import "./global.css";
+
+/* components */
+@import "./components/button.css";
+@import "./components/header.css";
+@import "./components/menuBar.css";
+@import "./components/emotionItem.css";
+
+/* components-item */
+@import "./components/emotionItemList.css";
+@import "./components/emotionItemCard.css";
+
+/* pages */
+@import "./pages/home.css";
+@import "./pages/diary.css";
+@import "./pages/new.css";
+@import "./pages/edit.css";
+
+#root {
+  background-color: #fff;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  min-height: 100vh;
+  height: 100%;
+  box-shadow: #64646433 0 0 29px;
+  padding: 0 20px;
+}
+
+.emotion-1 {
+  background-color: #64c964;
+}
+.emotion-2 {
+  background-color: #9dd772;
+}
+.emotion-3 {
+  background-color: #fdce17;
+}
+.emotion-4 {
+  background-color: #fd8446;
+}
+.emotion-5 {
+  background-color: #fd565f;
+}
