@@ -9,7 +9,8 @@
   box-sizing: border-box;
 }
 
-html,
 body {
   font-family: "NanumPenScript";
+  font-size: 18px;
+  background-color: #fff;
 }
