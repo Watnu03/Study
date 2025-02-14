@@ -1,7 +1,12 @@
 import EmotionItemCard from "./EmotionItemCard";
 import React from "react";
 
-const EmotionItemList = ({ items, handleEditBtn, handleDeleteBtn }) => {
+const EmotionItemList = ({
+  items,
+  handleEditBtn,
+  handleDeleteBtn,
+  handleClickCard,
+}) => {
   return (
     <div className="item_list">
       {items.map((item) => (
@@ -10,6 +15,7 @@ const EmotionItemList = ({ items, handleEditBtn, handleDeleteBtn }) => {
           {...item}
           handleEditBtn={handleEditBtn}
           handleDeleteBtn={handleDeleteBtn}
+          handleClickCard={handleClickCard}
         />
       ))}
     </div>
