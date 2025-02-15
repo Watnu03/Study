@@ -1,5 +1,5 @@
 import Button from "./Button";
-import getEmotionImg from "../util/get-emotion-img";
+import getEmotionImage from "../util/get-emotion-img";
 import { useNavigate } from "react-router-dom";
 
 const DiaryCard = ({
@@ -32,7 +32,7 @@ const DiaryCard = ({
   return (
     <div className="item_card" onClick={() => onClickCard(id)}>
       <div className={`item_img emotion-${emotionId}`}>
-        <img src={getEmotionImg(emotionId)} alt={emotionId} />
+        <img src={getEmotionImage(emotionId)} alt={emotionId} />
       </div>
       <div className="item_title">
         <p>{new Date(date).toLocaleDateString()}</p>
