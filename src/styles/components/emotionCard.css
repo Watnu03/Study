@@ -1,0 +1,17 @@
+.emotion_card {
+  border-radius: 5px;
+  background-color: #ececec;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.emotion_card:hover {
+  transform: scale(1.02);
+  transition: transform 0.1s ease-in-out;
+}
+
+.emotion_card img {
+  width: 50%;
+  margin-bottom: 10px;
+}
