@@ -5,17 +5,12 @@
 @import "./components/header.css";
 @import "./components/menuBar.css";
 @import "./components/editor.css";
+@import "./components/viewer.css";
 
 /* components-item */
 @import "./components/diaryList.css";
 @import "./components/diaryCard.css";
 @import "./components/emotionCard.css";
-
-/* pages */
-@import "./pages/home.css";
-@import "./pages/diary.css";
-@import "./pages/new.css";
-@import "./pages/edit.css";
 
 #root {
   background-color: #fff;
