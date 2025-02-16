@@ -5,6 +5,7 @@ import DiaryList from "../components/DiaryList";
 import Header from "../components/Header";
 import MenuBar from "../components/MenuBar";
 import { useNavigate } from "react-router-dom";
+import usePageTitle from "../hooks/usePageTitle";
 
 //특정 월의 데이터를 필터링하는 함수
 const getMonthlyDate = (pivotDate, data) => {
@@ -30,6 +31,7 @@ const getMonthlyDate = (pivotDate, data) => {
 };
 
 const Home = () => {
+  usePageTitle("감정 일기장");
   const data = useContext(DiaryStateContext);
   const { onDelete, onSort } = useContext(DiaryDispatchContext);
   const navigate = useNavigate();

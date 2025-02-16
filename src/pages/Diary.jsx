@@ -5,10 +5,13 @@ import Header from "../components/Header";
 import Viewer from "../components/Viewer";
 import { getStringedDate } from "../util/get-stringed-date";
 import useDiary from "../hooks/useDiary";
+import usePageTitle from "../hooks/usePageTitle";
 
 const Diary = () => {
   const navigate = useNavigate();
   const params = useParams();
+  usePageTitle(`${params.id}번 일기`);
+
   const currentDiaryItem = useDiary(params.id);
 
   if (!currentDiaryItem) {
