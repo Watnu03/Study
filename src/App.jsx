@@ -1,58 +1,36 @@
 import "./styles/global.css";
 
 import { Route, Routes } from "react-router-dom";
-import { createContext, useReducer, useRef } from "react";
+import { createContext, useEffect, useReducer, useRef, useState } from "react";
 
 import Diary from "./pages/Diary";
 import Edit from "./pages/Edit";
 import Home from "./pages/Home";
 import New from "./pages/New";
 
-const itemData = [
-  {
-    id: 0,
-    date: new Date("2025-01-15").getTime(),
-    emotionId: 2,
-    content: "0번일기",
-  },
-  {
-    id: 1,
-    date: new Date("2025-01-18").getTime(),
-    emotionId: 5,
-    content: "1번일기",
-  },
-  {
-    id: 2,
-    date: new Date("2025-02-18").getTime(),
-    emotionId: 1,
-    content:
-      "2번일기다 이 AI자식드랑!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
-  },
-  {
-    id: 3,
-    date: new Date("2025-03-11").getTime(),
-    emotionId: 4,
-    content: "3번일기",
-  },
-  {
-    id: 4,
-    date: new Date("2025-04-20").getTime(),
-    emotionId: 3,
-    content: "4번일기",
-  },
-];
-
 function reducer(state, action) {
+  // 로컬스토리지
+  let nextState;
+
   switch (action.type) {
-    case "CREATE":
-      return [...state, action.data];
-    case "UPDATE":
-      return state.map((item) =>
+    case "INIT": {
+      return action.data;
+    }
+    case "CREATE": {
+      nextState = [...state, action.data];
+      break;
+    }
+    case "UPDATE": {
+      nextState = state.map((item) =>
         String(item.id) === String(action.data.id) ? action.data : item
       );
-    case "DELETE":
-      return state.filter((item) => item.id !== action.targetId);
-    case "SORT":
+      break;
+    }
+    case "DELETE": {
+      nextState = state.filter((item) => item.id !== action.targetId);
+      break;
+    }
+    case "SORT": {
       return state.slice().sort((a, b) => {
         if (action.sortType === "latest") {
           return a.date - b.date;
@@ -62,17 +40,54 @@ function reducer(state, action) {
           return 0;
         }
       });
+    }
     default:
       return state;
   }
+
+  localStorage.setItem("diary", JSON.stringify(nextState));
+
+  return nextState;
 }
 
 export const DiaryStateContext = createContext();
 export const DiaryDispatchContext = createContext();
 
 function App() {
-  const [data, dispatch] = useReducer(reducer, itemData);
-  const idRef = useRef(5);
+  const [isLoading, setIsLoading] = useState(true);
+  const [data, dispatch] = useReducer(reducer, []);
+  const idRef = useRef(0);
+
+  useEffect(() => {
+    const storedData = localStorage.getItem("diary");
+    if (!storedData) {
+      setIsLoading(false);
+      return;
+    }
+
+    const parsedData = JSON.parse(storedData);
+    //parsedData가 배열인지 확인
+    if (!Array.isArray(parsedData)) {
+      setIsLoading(false);
+      return;
+    }
+
+    // 저장되있는 id 값중 최대값 찾기위해
+    let maxId = 0;
+    parsedData.forEach((item) => {
+      if (Number(item.id) === maxId) {
+        maxId = Number(item.id);
+      }
+    });
+
+    idRef.current = maxId;
+
+    dispatch({
+      type: "INIT",
+      data: parsedData,
+    });
+    setIsLoading(false);
+  }, []);
 
   const onCreate = (date, emotionId, content) => {
     dispatch({
@@ -115,6 +130,10 @@ function App() {
       sortType: select,
     });
   };
+
+  if (isLoading) {
+    return <div>로딩중...</div>;
+  }
 
   return (
     <>
