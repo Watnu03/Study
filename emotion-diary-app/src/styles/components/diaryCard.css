@@ -1,0 +1,55 @@
+.item_card {
+  padding: 15px 10px;
+  gap: 10px;
+  display: flex;
+  cursor: pointer;
+  border-radius: 5px;
+  max-width: 100%;
+  overflow: hidden;
+}
+.item_card:hover {
+  background-color: #f9f9f9;
+  transform: scale(1.005);
+  transition: transform 0.2s ease-in-out;
+}
+
+.item_card > div {
+  display: flex;
+}
+
+.item_img {
+  min-width: 120px;
+  height: 85px;
+  justify-content: center;
+  border-radius: 5px;
+}
+.item_img > img {
+  width: 50%;
+}
+
+.item_title {
+  font-size: 20px;
+  flex: 1;
+  justify-content: flex-start;
+  flex-direction: column;
+  overflow-wrap: break-word;
+}
+
+.item_title p:first-child {
+  font-weight: 600;
+}
+
+.item_title p:last-child {
+  word-wrap: break-word; /* 긴 단어가 있으면 줄바꿈 */
+  word-break: break-word; /* 모든 문자에 대해 줄바꿈 */
+  overflow-wrap: break-word; /* 브라우저에서 강제 줄바꿈 */
+  white-space: normal; /* 기본 줄바꿈 허용 */
+  overflow: hidden; /* 넘치는 텍스트 숨김 */
+  max-width: 100%; /* 부모 크기 넘지 않도록 제한 */
+}
+
+.item_buttons {
+  height: 85px;
+  gap: 5px;
+  flex-direction: column;
+}
