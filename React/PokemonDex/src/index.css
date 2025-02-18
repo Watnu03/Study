@@ -1,0 +1,28 @@
+@font-face {
+  font-family: "Freesentation";
+  src: url("/font/Freesentation-3Light.ttf");
+  font-weight: lighter;
+}
+@font-face {
+  font-family: "Freesentation";
+  src: url("/font/Freesentation-5Medium.ttf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Freesentation";
+  src: url("/font/Freesentation-7Bold.ttf");
+  font-weight: bold;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Freesentation";
+}
+
+body {
+  font-family: "Freesentation";
+  font-size: 18px;
+  background-color: #fff;
+}
