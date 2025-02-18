@@ -1,7 +1,7 @@
 <div align="center">
   <h1>감정 일기장 (Emotion Diary)</h1>
   <img src='https://github.com/user-attachments/assets/52a1e967-6921-48a5-a4ea-9a14783a0a3b'/>
-  <p>이 프로젝트는 감정을 함께 기록할 수 있는 <b>감정 일기장 웹 애플리케이션</b>입니다.
+  <p>이 프로젝트는 감정을 함께 기록할 수 있는 <b>감정 일기장 웹 애플리케이션</b>입니다.<br />
 사용자는 해당 날짜의 일기를 작성하면서 감정도 같이 기록할 수 있습니다.</p>
 </div>
 
@@ -36,24 +36,29 @@
 <br />
 
 ## 3. UI
-<div align="center">
+<div>
   <div>
     <h3>Home Page</h3>
+    <p>웹에 접속했을 때, 사용자가 처음 보는 페이지입니다
+    <br />다이어리 Item 목록을 볼 수 있고 날짜를 기준으로 필터링해서 볼 수 있습니다.</p>
     <img src='https://github.com/user-attachments/assets/9538738e-1b43-415a-b135-047eb4bc88d6'/>
   </div>
   <br/>
   <div>
-    <h3>New Page</h3>
+    <h4>New Page</h4>
+    <p>새로운 일기를 작성할때 보이는 페이지입니다.</p>
     <img src='https://github.com/user-attachments/assets/e8ddcb9e-51e8-4c36-9f91-56a73d13ba4c'/>
   </div>
     <br/>
   <div>
-    <h3>Edit Page</h3>
+    <h4>Edit Page</h4>
+    <p>기존 일기를 수정할 수 있는 페이지입니다.</p>
     <img src='https://github.com/user-attachments/assets/13eed34f-cc52-46b6-afa0-d86735c0ccb0'/>
   </div>
   <br/>
   <div>
-    <h3>Diary Modal</h3>
+    <h4>Diary Page</h4>
+    <p>특정 일기의 상세내용을 볼 수 있는 페이지입니다.</p>
     <img src='https://github.com/user-attachments/assets/01c0260b-d95b-4152-b07a-7ac06e21572f'/>
   </div>
   <br/>  
