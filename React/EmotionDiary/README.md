@@ -38,7 +38,7 @@
 ## 3. UI
 <div>
   <div>
-    <h3>Home Page</h3>
+    <h4>Home Page</h4>
     <p>웹에 접속했을 때, 사용자가 처음 보는 페이지입니다
     <br />다이어리 Item 목록을 볼 수 있고 날짜를 기준으로 필터링해서 볼 수 있습니다.</p>
     <img src='https://github.com/user-attachments/assets/9538738e-1b43-415a-b135-047eb4bc88d6'/>
