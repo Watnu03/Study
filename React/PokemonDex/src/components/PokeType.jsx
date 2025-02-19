@@ -1,13 +1,28 @@
 import React from "react";
+import pokeTypeData from "../data/poke-type-data.json";
 import styled from "styled-components";
 
-const PokeType = ({ name, color, isSelected }) => {
+const isSelected = true;
+
+// 'name'과 일치하는 타입을 찾아서 name_kr과 color 반환
+const getTypeDetails = (name) => {
+  const type = pokeTypeData.find(
+    (type) => type.name.toLowerCase() === name.toLowerCase()
+  );
+  return type
+    ? { name_kr: type.name_kr, color: type.color }
+    : { name_kr: name, color: "#000" };
+};
+
+const PokeType = ({ name }) => {
+  const { name_kr, color } = getTypeDetails(name);
+
   return (
     <PokeTypeItem
       color={color}
       className={`${isSelected ? "pokeType_on" : ""} `}
     >
-      <p>{name}</p>
+      <p>{name_kr}</p>
     </PokeTypeItem>
   );
 };

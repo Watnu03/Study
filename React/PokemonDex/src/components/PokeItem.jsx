@@ -1,29 +1,43 @@
+import React, { useEffect, useState } from "react";
+
 import PokeButton from "./PokeButton";
 import PokeType from "./PokeType";
-import React from "react";
 import styled from "styled-components";
 
-const PokeItem = () => {
-  const isSelected = true;
+// id 자리수에 따라 앞에 0붙이기
+const handleUpdateId = (id) => {
+  let formattedId = id;
+  if (id < 10) {
+    formattedId = `00${id}`;
+  } else if (id >= 10 && id < 100) {
+    formattedId = `0${id}`;
+  }
+
+  return formattedId;
+};
+
+const PokeItem = ({ id, name, sprites, types }) => {
+  const remakeId = handleUpdateId(id);
 
   return (
     <PokeItemWrapper>
       <div className="info">
         <span className="empty"></span>
         <span>
-          <h5>No.001</h5>
-          <p>이상해씨</p>
+          <h5>No.{remakeId}</h5>
+          <p>{name}</p>
         </span>
         <span>
           <PokeButton />
         </span>
       </div>
       <div className="img">
-        <img src="https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/000101.png" />
+        <img src={sprites} />
       </div>
       <div className="typeTag ">
-        <PokeType name={"풀"} color={"#7AC74C"} isSelected={isSelected} />
-        <PokeType name={"독"} color={"#A33EA1"} isSelected={isSelected} />
+        {types.map((item) => (
+          <PokeType key={item.slot} name={item.type.name} />
+        ))}
       </div>
     </PokeItemWrapper>
   );

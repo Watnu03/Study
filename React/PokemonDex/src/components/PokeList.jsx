@@ -2,17 +2,18 @@ import PokeItem from "./PokeItem";
 import React from "react";
 import styled from "styled-components";
 
-const PokeList = () => {
+const PokeList = ({ data }) => {
   return (
     <PokeListWrapper>
-      <PokeItem />
-      <PokeItem />
-      <PokeItem />
-      <PokeItem />
-      <PokeItem />
-      <PokeItem />
-      <PokeItem />
-      <PokeItem />
+      {data.map((item) => (
+        <PokeItem
+          key={item.id}
+          id={item.id}
+          name={item.name}
+          sprites={item.sprites.front_default}
+          types={item.types}
+        />
+      ))}
     </PokeListWrapper>
   );
 };
