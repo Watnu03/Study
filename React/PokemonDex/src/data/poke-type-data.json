@@ -1,0 +1,20 @@
+[
+  { "id": 1, "name": "노말", "color": "#A8A77A" },
+  { "id": 2, "name": "불꽃", "color": "#EE8130" },
+  { "id": 3, "name": "물", "color": "#6390F0" },
+  { "id": 4, "name": "풀", "color": "#7AC74C" },
+  { "id": 5, "name": "전기", "color": "#F7D02C" },
+  { "id": 6, "name": "얼음", "color": "#96D9D6" },
+  { "id": 7, "name": "격투", "color": "#C22E28" },
+  { "id": 8, "name": "독", "color": "#A33EA1" },
+  { "id": 9, "name": "땅", "color": "#E2BF65" },
+  { "id": 10, "name": "비행", "color": "#A98FF3" },
+  { "id": 11, "name": "에스퍼", "color": "#F95587" },
+  { "id": 12, "name": "벌레", "color": "#A6B91A" },
+  { "id": 13, "name": "바위", "color": "#B6A136" },
+  { "id": 14, "name": "고스트", "color": "#735797" },
+  { "id": 15, "name": "드래곤", "color": "#6F35FC" },
+  { "id": 16, "name": "악", "color": "#705746" },
+  { "id": 17, "name": "강철", "color": "#B7B7CE" },
+  { "id": 18, "name": "페어리", "color": "#D685AD" }
+]
