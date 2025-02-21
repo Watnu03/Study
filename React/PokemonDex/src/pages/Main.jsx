@@ -1,5 +1,5 @@
-import FilterMenu from "../components/FilterMenu";
-import PokeList from "../components/PokeList";
+import FilterMenu from "../components/common/FilterMenu";
+import PokeList from "../components/pokeComponents/PokeList";
 import React from "react";
 import styled from "styled-components";
 

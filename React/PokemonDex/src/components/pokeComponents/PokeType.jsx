@@ -1,5 +1,5 @@
 import React from "react";
-import pokeTypeData from "../data/poke-type-data.json";
+import pokeTypeData from "../../data/poke-type-data.json";
 import styled from "styled-components";
 
 const isSelected = true;

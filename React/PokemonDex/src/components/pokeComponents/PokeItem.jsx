@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import PokeButton from "./PokeButton";
+import PokeButton from "../button/PokeButton";
 import PokeType from "./PokeType";
 import styled from "styled-components";
 

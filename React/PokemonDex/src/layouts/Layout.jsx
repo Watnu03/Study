@@ -1,4 +1,4 @@
-import Header from "./Header";
+import Header from "../components/common/Header";
 import { Outlet } from "react-router-dom";
 import React from "react";
 import styled from "styled-components";

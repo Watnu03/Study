@@ -2,9 +2,9 @@ import { Route, Routes } from "react-router-dom";
 
 import Detail from "./pages/Detail";
 import Favorite from "./pages/Favorite";
-import Layout from "./components/Layout";
+import Layout from "./layouts/Layout";
 import Main from "./pages/Main";
-import { SET } from "./RTK/pokemonSlice";
+import { SET } from "./store/pokemonSlice";
 import Search from "./pages/Search";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";

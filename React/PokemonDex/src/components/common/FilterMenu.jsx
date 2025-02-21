@@ -1,7 +1,7 @@
-import PokeType from "./PokeType";
+import PokeType from "../pokeComponents/PokeType";
 import React from "react";
 import Selector from "./Selector";
-import pokeTypeData from "../data/poke-type-data.json";
+import pokeTypeData from "../../data/poke-type-data.json";
 import styled from "styled-components";
 
 const FilterMenu = () => {
