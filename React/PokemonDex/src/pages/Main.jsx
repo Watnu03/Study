@@ -3,11 +3,11 @@ import PokeList from "../components/PokeList";
 import React from "react";
 import styled from "styled-components";
 
-const Main = ({ data }) => {
+const Main = () => {
   return (
     <MainWrapper>
       <FilterMenu />
-      <PokeList data={data} />
+      <PokeList />
     </MainWrapper>
   );
 };

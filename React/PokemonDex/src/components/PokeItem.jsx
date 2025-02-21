@@ -35,8 +35,8 @@ const PokeItem = ({ id, name, sprites, types }) => {
         <img src={sprites} />
       </div>
       <div className="typeTag ">
-        {types.map((item) => (
-          <PokeType key={item.slot} name={item.type.name} />
+        {types.map((item, index) => (
+          <PokeType key={index} name={item} />
         ))}
       </div>
     </PokeItemWrapper>

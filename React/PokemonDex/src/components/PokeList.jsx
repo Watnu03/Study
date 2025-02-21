@@ -1,16 +1,20 @@
 import PokeItem from "./PokeItem";
 import React from "react";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 
-const PokeList = ({ data }) => {
+const PokeList = () => {
+  // 리덕스 상태에서 pokemonData를 가져오기
+  const pokemonData = useSelector((state) => state.pokemon.pokemonData);
+
   return (
     <PokeListWrapper>
-      {data.map((item) => (
+      {pokemonData.map((item) => (
         <PokeItem
           key={item.id}
           id={item.id}
           name={item.name}
-          sprites={item.sprites.front_default}
+          sprites={item.frontImg}
           types={item.types}
         />
       ))}
