@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import PokeButton from "../button/PokeButton";
 import React from "react";
-import SearchBar from "./SearchBar";
 import styled from "styled-components";
 
 const Header = () => {
@@ -14,7 +13,6 @@ const Header = () => {
         </Link>
         <PokeButton />
       </HeaderWrapper>
-      <SearchBar />
     </>
   );
 };

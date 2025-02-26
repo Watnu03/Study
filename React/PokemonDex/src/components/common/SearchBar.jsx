@@ -16,6 +16,7 @@ const SearchBar = () => {
 export default SearchBar;
 
 const SearchBarWrapper = styled.div`
+  width: 100%;
   height: 60px;
   margin: 70px 0 10px 0;
   padding: 10px 20px;

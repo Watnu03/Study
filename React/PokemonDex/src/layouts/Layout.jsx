@@ -17,5 +17,5 @@ const Layout = () => {
 export default Layout;
 
 const OutletWrapper = styled.div`
-  padding: 0 25px;
+  margin-top: 70px;
 `;
