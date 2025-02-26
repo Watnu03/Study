@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 
-import Detail from "./pages/Detail";
 import Favorite from "./pages/Favorite";
 import Layout from "./layouts/Layout";
 import Main from "./pages/Main";
@@ -35,12 +34,19 @@ function App() {
           name: pokemonSpeciesData.names.find(
             (item) => item.language.name === "ko"
           ).name,
+          genus: pokemonSpeciesData.genera.find(
+            (item) => item.language.name === "ko"
+          ).genus,
+          color: pokemonSpeciesData.color.name,
           description: pokemonSpeciesData.flavor_text_entries.find(
             (item) => item.language.name === "ko"
           ).flavor_text,
+          isLegendary: pokemonSpeciesData.is_legendary,
           frontImg: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`,
           backImg: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${pokemonId}.png`,
           types: pokemonInfoData.types.map((item) => item.type.name),
+          height: pokemonInfoData.height,
+          weight: pokemonInfoData.weight,
         };
 
         return pokemonData;
@@ -83,7 +89,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Main />}></Route>
-          <Route path="detail:id" element={<Detail />}></Route>
           <Route path="search" element={<Search />}></Route>
           <Route path="favorite" element={<Favorite />}></Route>
         </Route>
