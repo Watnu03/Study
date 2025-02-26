@@ -16,11 +16,11 @@ const handleUpdateId = (id) => {
   return formattedId;
 };
 
-const PokeItem = ({ id, name, sprites, types }) => {
+const PokeItem = ({ id, name, frontImg, types, onClickItem }) => {
   const remakeId = handleUpdateId(id);
 
   return (
-    <PokeItemWrapper>
+    <PokeItemWrapper onClick={onClickItem}>
       <div className="info">
         <span className="empty"></span>
         <span>
@@ -32,7 +32,7 @@ const PokeItem = ({ id, name, sprites, types }) => {
         </span>
       </div>
       <div className="img">
-        <img src={sprites} />
+        <img src={frontImg} />
       </div>
       <div className="typeTag ">
         {types.map((item, index) => (
@@ -47,7 +47,7 @@ export default PokeItem;
 
 const PokeItemWrapper = styled.div`
   max-width: 320px;
-  min-height: 400px;
+  min-height: 335px;
 
   padding: 18px 20px;
   border: 1px solid #e8e8e8;
