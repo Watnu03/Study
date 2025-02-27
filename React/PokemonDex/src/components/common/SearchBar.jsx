@@ -19,7 +19,7 @@ const SearchBarWrapper = styled.div`
   width: 100%;
   height: 60px;
   margin: 70px 0 10px 0;
-  padding: 10px 20px;
+  padding: 15px 20px;
   background-color: #fff;
   box-shadow: 0 0 5px 0.1px #dcdcdc;
   display: flex;
@@ -36,7 +36,7 @@ const InputWrapper = styled.div`
 
   input {
     width: 100%;
-    padding: 8px 40px 8px 10px;
+    padding: 10px 40px 10px 10px;
     border: 2px solid black;
     border-radius: 5px;
     font-size: 16px;

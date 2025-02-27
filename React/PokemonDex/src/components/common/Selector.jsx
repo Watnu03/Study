@@ -6,7 +6,7 @@ const Selector = () => {
     <SelectorWrapper>
       <h4>특성</h4>
       <select value="">
-        <option name="lowest" value="lowest" selected>
+        <option name="lowest" value="lowest">
           도감 낮은 번호순서
         </option>
         <option name="highest" value="highest">
@@ -27,7 +27,7 @@ export default Selector;
 
 const SelectorWrapper = styled.div`
   width: 100%;
-  padding: 8px 0;
+  padding: 10px 0;
   margin-bottom: 8px;
   display: flex;
   flex-direction: column;
@@ -40,7 +40,7 @@ const SelectorWrapper = styled.div`
 
   select {
     width: 95%;
-    padding: 8px 15px;
+    padding: 10px 15px;
     border: 1px solid #000;
     text-align: center;
   }
