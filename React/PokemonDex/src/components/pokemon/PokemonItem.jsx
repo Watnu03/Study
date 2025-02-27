@@ -70,6 +70,8 @@ const PokemonItemWrapper = styled.div`
     span:nth-child(2) {
       width: 50%;
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
     span:last-child {
       width: 25%;
@@ -78,7 +80,7 @@ const PokemonItemWrapper = styled.div`
 
     p {
       max-width: 100px;
-      padding: 5px 10px;
+      padding: 5px 20px;
       border-radius: 20px;
       font-size: 14px;
       color: #fff;
@@ -88,12 +90,13 @@ const PokemonItemWrapper = styled.div`
     }
     h5 {
       font-size: 20px;
+      margin: 5px 0;
     }
   }
 
   .img {
     width: 100%;
-    height: 230px;
+    height: 235px;
     text-align: center;
 
     img {
@@ -108,5 +111,9 @@ const PokemonItemWrapper = styled.div`
   }
 
   .typeTag {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
   }
 `;

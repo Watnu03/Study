@@ -34,7 +34,6 @@ const DetailHeaderWrapper = styled.div`
   width: 100%;
   padding: 15px 15px 5px 15px;
   border-radius: 15px 15px 0 0;
-  /* color 값 받아서 background-color 로 넣기 */
   background-color: ${(props) =>
     props.$bgColor === "white" ? "#000" : props.$bgColor || "#000"};
 
@@ -53,6 +52,8 @@ const DetailHeaderWrapper = styled.div`
     p {
       max-width: 100px;
       padding: 5px 20px;
+      font-size: 13px;
+      font-weight: bold;
       border-radius: 20px;
       color: #2b2b2b;
       background-color: rgb(249, 249, 249, 0.9);

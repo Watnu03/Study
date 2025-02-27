@@ -1,21 +1,11 @@
 import React from "react";
-import pokemonTypeData from "../../data/pokemon-type-data.json";
+import replaceTypeName from "../../util/replace-ko-type-name";
 import styled from "styled-components";
 
-const isSelected = true;
-
-// 'name'과 일치하는 타입을 찾아서 name_kr과 color 반환
-const getTypeDetails = (name) => {
-  const type = pokemonTypeData.find(
-    (type) => type.name.toLowerCase() === name.toLowerCase()
-  );
-  return type
-    ? { name_kr: type.name_kr, color: type.color }
-    : { name_kr: name, color: "#000" };
-};
+const isSelected = false;
 
 const PokemonType = ({ name }) => {
-  const { name_kr, color } = getTypeDetails(name);
+  const { name_kr, color } = replaceTypeName(name);
 
   return (
     <PokemonTypeItem
@@ -34,7 +24,6 @@ const PokemonTypeItem = styled.button`
   padding: 8px 25px;
   margin: 3px;
   border: 1px solid ${(props) => props.color};
-  background-color: #fff;
   border-radius: 15px;
   font-size: 14px;
   cursor: pointer;

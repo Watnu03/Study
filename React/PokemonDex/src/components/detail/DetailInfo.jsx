@@ -70,20 +70,30 @@ const DetailInfoWrapper = styled.div`
 
   .pokemon-info {
     width: 100%;
-    padding: 0 15px;
-    margin-bottom: 23px;
+    margin-bottom: 18px;
     text-align: center;
   }
   .img-box {
     width: 60%;
     height: 250px;
-    /* cursor: pointer; */
+    margin-top: 30px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
 
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
+
+    &:hover {
+      transform: rotateY(25deg);
+    }
+  }
+
+  .type {
+    width: 80%;
   }
   .description {
     width: 70%;
@@ -114,14 +124,14 @@ const DetailInfoWrapper = styled.div`
         -webkit-background-clip: text;
         color: transparent;
       }
-    }
 
-    .category p:first-child {
-      color: #989898;
-      margin-right: 8px;
-    }
-    .category p:last-child {
-      font-size: 20px;
+      p:first-child {
+        color: #989898;
+        margin-right: 8px;
+      }
+      p:last-child {
+        font-size: 20px;
+      }
     }
   }
 `;
