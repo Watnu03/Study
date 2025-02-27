@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import DetailModal from "../components/modal/DetailModal";
 import FilterMenu from "../components/common/FilterMenu";
-import PokeList from "../components/pokeComponents/PokeList";
+import PokemonList from "../components/pokemon/PokemonList";
 import SearchBar from "../components/common/SearchBar";
 import styled from "styled-components";
 
@@ -26,7 +26,7 @@ const Main = () => {
         <SearchBar />
         <MainWrapper>
           <FilterMenu />
-          <PokeList onOpenModal={onOpenModal} />
+          <PokemonList onOpenModal={onOpenModal} />
         </MainWrapper>
       </div>
       {closeModal && (

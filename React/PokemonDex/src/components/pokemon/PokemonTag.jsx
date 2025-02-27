@@ -1,12 +1,12 @@
 import React from "react";
-import pokeTypeData from "../../data/poke-type-data.json";
+import pokemonTypeData from "../../data/pokemon-type-data.json";
 import styled from "styled-components";
 
 const isSelected = true;
 
 // 'name'과 일치하는 타입을 찾아서 name_kr과 color 반환
 const getTypeDetails = (name) => {
-  const type = pokeTypeData.find(
+  const type = pokemonTypeData.find(
     (type) => type.name.toLowerCase() === name.toLowerCase()
   );
   return type
@@ -14,28 +14,29 @@ const getTypeDetails = (name) => {
     : { name_kr: name, color: "#000" };
 };
 
-const PokeType = ({ name }) => {
+const PokemonType = ({ name }) => {
   const { name_kr, color } = getTypeDetails(name);
 
   return (
-    <PokeTypeItem
+    <PokemonTypeItem
       color={color}
-      className={`${isSelected ? "pokeType_on" : ""} `}
+      className={`${isSelected ? "pokemonType_on" : ""} `}
     >
       <p>{name_kr}</p>
-    </PokeTypeItem>
+    </PokemonTypeItem>
   );
 };
 
-export default PokeType;
+export default PokemonType;
 
-const PokeTypeItem = styled.button`
+const PokemonTypeItem = styled.button`
   position: relative;
-  padding: 6px 23px;
+  padding: 8px 25px;
   margin: 3px;
   border: 1px solid ${(props) => props.color};
   background-color: #fff;
   border-radius: 15px;
+  font-size: 14px;
   cursor: pointer;
   overflow: hidden;
   background-color: #f9f9f9;
@@ -48,12 +49,12 @@ const PokeTypeItem = styled.button`
     background-color: ${(props) => props.color};
   }
 
-  &.pokeType_on {
+  &.pokemonType_on {
     color: #fff;
     border-color: ${(props) => props.color};
     background-color: ${(props) => props.color};
   }
-  &.pokeType_on:hover {
+  &.pokemonType_on:hover {
     color: #000;
     background-color: #f9f9f9;
     border: 1px solid ${(props) => props.color};

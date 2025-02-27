@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const isAble = true;
-const PokeButton = () => {
+const PokemonButton = () => {
   return (
     <Button>
       {isAble ? (
@@ -14,7 +14,7 @@ const PokeButton = () => {
   );
 };
 
-export default PokeButton;
+export default PokemonButton;
 
 const Button = styled.button`
   height: 35px;

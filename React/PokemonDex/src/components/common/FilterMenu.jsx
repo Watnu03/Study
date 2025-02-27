@@ -1,7 +1,7 @@
-import PokeType from "../pokeComponents/PokeType";
+import PokemonType from "../pokemon/PokemonType";
 import React from "react";
 import Selector from "./Selector";
-import pokeTypeData from "../../data/poke-type-data.json";
+import pokemonTypeData from "../../data/pokemon-type-data.json";
 import styled from "styled-components";
 
 const FilterMenu = () => {
@@ -12,8 +12,8 @@ const FilterMenu = () => {
         <Selector />
       </section>
       <section>
-        {pokeTypeData.map((item) => (
-          <PokeType
+        {pokemonTypeData.map((item) => (
+          <PokemonType
             key={item.id}
             name={item.name}
             color={item.color}

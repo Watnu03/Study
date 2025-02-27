@@ -1,5 +1,6 @@
 import { IoMdClose } from "react-icons/io";
 import React from "react";
+import replaceDexId from "../../util/replace-dex-id";
 import styled from "styled-components";
 
 const DetailHeader = ({ id, name, color, onCloseModal }) => {
@@ -7,20 +8,21 @@ const DetailHeader = ({ id, name, color, onCloseModal }) => {
   const handleChildClick = (e) => {
     e.stopPropagation();
   };
-  //부모이벤트와 중복 클릭방지
+  // close 버튼 클릭 시 부모의 onClick 이벤트 전파 방지
   const handleClickClose = (e) => {
-    e.stopImmediatePropagation();
+    e.stopPropagation();
+    onCloseModal();
   };
 
   return (
     <DetailHeaderWrapper $bgColor={color} onClick={handleChildClick}>
       <span className="empty"></span>
       <div className="title">
-        <p>No.{id}</p>
+        <p>{replaceDexId(id)}</p>
         <h3>{name}</h3>
       </div>
       <button className="closeButton">
-        <IoMdClose onClick={onCloseModal} />
+        <IoMdClose onClick={handleClickClose} />
       </button>
     </DetailHeaderWrapper>
   );
@@ -50,7 +52,6 @@ const DetailHeaderWrapper = styled.div`
     align-items: center;
     p {
       max-width: 100px;
-      font-size: 14px;
       padding: 5px 20px;
       border-radius: 20px;
       color: #2b2b2b;

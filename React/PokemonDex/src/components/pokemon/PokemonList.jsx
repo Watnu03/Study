@@ -1,31 +1,31 @@
-import PokeItem from "./PokeItem";
+import PokemonItem from "./PokemonItem";
 import React from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 
-const PokeList = ({ onOpenModal }) => {
+const PokemonList = ({ onOpenModal }) => {
   // 리덕스 상태에서 pokemonData를 가져오기
   const pokemonsData = useSelector((state) => state.pokemon.pokemonData);
-
   return (
-    <PokeListWrapper>
+    <PokemonListWrapper>
       {pokemonsData.map((item) => (
-        <PokeItem
+        <PokemonItem
           key={item.id}
           id={item.id}
           name={item.name}
           frontImg={item.frontImg}
           types={item.types}
           onClickItem={() => onOpenModal(item.id)}
+          color={item.color}
         />
       ))}
-    </PokeListWrapper>
+    </PokemonListWrapper>
   );
 };
 
-export default PokeList;
+export default PokemonList;
 
-const PokeListWrapper = styled.div`
+const PokemonListWrapper = styled.div`
   width: 100%;
   padding: 30px 0;
 

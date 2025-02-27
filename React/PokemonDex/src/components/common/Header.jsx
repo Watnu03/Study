@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import PokeButton from "../button/PokeButton";
+import PokemonButton from "../button/PokemonButton";
 import React from "react";
 import styled from "styled-components";
 
@@ -11,7 +11,7 @@ const Header = () => {
         <Link to={"/"} className="logo">
           <img src="/assets/poke-logo.png" />
         </Link>
-        <PokeButton />
+        <PokemonButton />
       </HeaderWrapper>
     </>
   );

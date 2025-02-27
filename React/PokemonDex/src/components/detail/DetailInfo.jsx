@@ -1,4 +1,4 @@
-import PokeType from "../pokeComponents/PokeType";
+import PokemonType from "../pokemon/PokemonType";
 import React from "react";
 import styled from "styled-components";
 
@@ -26,7 +26,7 @@ const DetailInfo = ({
       </div>
       <div className="pokemon-info type">
         {types.map((item, index) => (
-          <PokeType key={index} name={item} />
+          <PokemonType key={index} name={item} />
         ))}
       </div>
       <div className="pokemon-info description">
@@ -42,16 +42,16 @@ const DetailInfo = ({
           <p>{replaceSize(weight)} kg</p>
         </span>
         <span className="category">
-          <p>분류</p>
-          <p>{genus}</p>
-        </span>
-        <span className="category">
           <p>클래스</p>
           {isLegendary ? (
             <p className="class legendary">전설</p>
           ) : (
             <p className="class normal">일반</p>
           )}
+        </span>
+        <span className="category">
+          <p>분류</p>
+          <p>{genus}</p>
         </span>
       </div>
     </DetailInfoWrapper>
@@ -91,7 +91,7 @@ const DetailInfoWrapper = styled.div`
 
   .detail {
     padding: 0 15px;
-    width: 70%;
+    width: 80%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
