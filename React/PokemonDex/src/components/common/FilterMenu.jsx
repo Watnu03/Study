@@ -1,4 +1,4 @@
-import PokemonType from "../pokemon/PokemonType";
+import PokemonTag from "../pokemon/PokemonTag";
 import React from "react";
 import Selector from "./Selector";
 import pokemonTypeData from "../../data/pokemon-type-data.json";
@@ -13,7 +13,7 @@ const FilterMenu = () => {
       </section>
       <section>
         {pokemonTypeData.map((item) => (
-          <PokemonType
+          <PokemonTag
             key={item.id}
             name={item.name}
             color={item.color}
