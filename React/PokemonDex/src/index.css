@@ -1,28 +1,18 @@
 @font-face {
-  font-family: "Freesentation";
-  src: url("/font/Freesentation-3Light.ttf");
+  font-family: "Galmuri";
+  src: url("/font/Galmuri9.ttf");
   font-weight: lighter;
-}
-@font-face {
-  font-family: "Freesentation";
-  src: url("/font/Freesentation-5Medium.ttf");
-  font-weight: normal;
-}
-@font-face {
-  font-family: "Freesentation";
-  src: url("/font/Freesentation-7Bold.ttf");
-  font-weight: bold;
 }
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Freesentation";
+  font-family: "Galmuri";
 }
 
 body {
-  font-family: "Freesentation";
+  font-family: "Galmuri";
   font-size: 18px;
   background-color: #fff;
 }
