@@ -21,11 +21,11 @@ export default PokemonType;
 
 const PokemonTypeItem = styled.button`
   position: relative;
-  padding: 8px 25px;
+  padding: 8px 20px;
   margin: 3px;
   border: 1px solid ${(props) => props.color};
-  border-radius: 15px;
-  font-size: 14px;
+  border-radius: 10px;
+  font-size: 16px;
   cursor: pointer;
   overflow: hidden;
   background-color: #f9f9f9;
