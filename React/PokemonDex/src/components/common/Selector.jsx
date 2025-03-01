@@ -1,23 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 
-const Selector = () => {
+const Selector = ({ topic, options }) => {
   return (
     <SelectorWrapper>
-      <h4>특성</h4>
-      <select value="">
-        <option name="lowest" value="lowest">
-          도감 낮은 번호순서
-        </option>
-        <option name="highest" value="highest">
-          도감 높은 번호순서
-        </option>
-        <option name="az" value="az">
-          이름 순서(A-Z)
-        </option>
-        <option name="za" value="za">
-          이름 반대순서(Z-A)
-        </option>
+      <h4>{topic}</h4>
+      <select value="basic">
+        {options.map((item) => (
+          <option key={item.id} name={item.name} value={item.value}>
+            {item.name}
+          </option>
+        ))}
       </select>
     </SelectorWrapper>
   );
@@ -35,6 +28,8 @@ const SelectorWrapper = styled.div`
   align-items: center;
 
   h4 {
+    font-size: 15px;
+    color: #989898;
     margin-bottom: 5px;
   }
 
