@@ -3,10 +3,13 @@ import React, { useState } from "react";
 import DetailModal from "../components/modal/DetailModal";
 import FilterMenu from "../components/common/FilterMenu";
 import PokemonList from "../components/pokemon/PokemonList";
-import SearchBar from "../components/common/SearchBar";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 
 const Main = () => {
+  // 리덕스 상태에서 pokemonData를 가져오기
+  const pokemonsData = useSelector((state) => state.pokemon.pokemonData);
+
   const [closeModal, setCloseModal] = useState(false);
   const [selectPokemon, setSelectPokemon] = useState(null);
 
@@ -22,13 +25,11 @@ const Main = () => {
 
   return (
     <>
-      <div>
-        <SearchBar />
-        <MainWrapper>
-          <FilterMenu />
-          <PokemonList onOpenModal={onOpenModal} />
-        </MainWrapper>
-      </div>
+      <MainWrapper>
+        <FilterMenu />
+        <PokemonList pokemonsData={pokemonsData} onOpenModal={onOpenModal} />
+      </MainWrapper>
+
       {closeModal && (
         <DetailModal pokemon={selectPokemon} onCloseModal={onCloseModal} />
       )}

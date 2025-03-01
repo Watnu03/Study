@@ -1,11 +1,8 @@
 import PokemonItem from "./PokemonItem";
 import React from "react";
 import styled from "styled-components";
-import { useSelector } from "react-redux";
 
-const PokemonList = ({ onOpenModal }) => {
-  // 리덕스 상태에서 pokemonData를 가져오기
-  const pokemonsData = useSelector((state) => state.pokemon.pokemonData);
+const PokemonList = ({ pokemonsData, onOpenModal }) => {
   return (
     <PokemonListWrapper>
       {pokemonsData.map((item) => (
