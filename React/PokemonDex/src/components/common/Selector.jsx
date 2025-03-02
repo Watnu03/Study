@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-const Selector = ({ topic, options }) => {
+const Selector = ({ topic, options, selectedSortType, handleSortChange }) => {
   return (
     <SelectorWrapper>
       <h4>{topic}</h4>
-      <select value="basic">
+      <select value={selectedSortType} onChange={handleSortChange}>
         {options.map((item) => (
           <option key={item.id} name={item.name} value={item.value}>
             {item.name}
@@ -19,7 +19,7 @@ const Selector = ({ topic, options }) => {
 export default Selector;
 
 const SelectorWrapper = styled.div`
-  width: 100%;
+  width: 50%;
   padding: 10px 0;
   margin-bottom: 8px;
   display: flex;

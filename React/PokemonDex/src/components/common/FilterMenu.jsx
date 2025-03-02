@@ -1,5 +1,6 @@
+import React, { useEffect, useState } from "react";
+
 import PokemonTag from "../pokemon/PokemonTag";
-import React from "react";
 import Selector from "./Selector";
 import pokemonTypeData from "../../data/pokemon-type-data.json";
 import styled from "styled-components";
@@ -10,27 +11,38 @@ const basicSelectItem = [
   { id: 3, name: "이름 순서(A-Z)", value: "az" },
   { id: 4, name: "이름 반대순서(Z-A)", value: "za" },
 ];
-const etcSelectItem = [
-  { id: 1, name: "무거운 순서", value: "heavy" },
-  { id: 2, name: "가벼운 순서", value: "light" },
-  { id: 3, name: "키가 큰 순서", value: "tall" },
-  { id: 4, name: "키가 작은 순서", value: "short" },
-];
+// const etcSelectItem = [
+//   { id: 1, name: "무거운 순서", value: "heavy" },
+//   { id: 2, name: "가벼운 순서", value: "light" },
+//   { id: 3, name: "키가 큰 순서", value: "tall" },
+//   { id: 4, name: "키가 작은 순서", value: "short" },
+// ];
 
-const FilterMenu = () => {
+const FilterMenu = ({
+  selectType,
+  selectedSortType,
+  handleSortChange,
+  onTypeTagClick,
+}) => {
   return (
     <FilterMenuWrapper>
       <section className="selectorSection">
-        <Selector topic={"기타정렬"} options={etcSelectItem} />
-        <Selector topic={"정렬"} options={basicSelectItem} />
+        {/* <Selector topic={"기타정렬"} options={etcSelectItem} /> */}
+        <Selector
+          topic={"정렬"}
+          options={basicSelectItem}
+          selectedSortType={selectedSortType}
+          handleSortChange={handleSortChange}
+        />
       </section>
       <section className="typeSection">
-        {pokemonTypeData.map((item) => (
+        {pokemonTypeData.map((item, index) => (
           <PokemonTag
-            key={item.id}
+            key={index}
             name={item.name}
             color={item.color}
-            isSelected={true}
+            isSelected={selectType.includes(item.name)}
+            onTypeTagClick={() => onTypeTagClick(item.name)}
           />
         ))}
       </section>
@@ -50,6 +62,7 @@ const FilterMenuWrapper = styled.div`
   .selectorSection {
     width: 100%;
     display: flex;
+    justify-content: flex-end;
   }
 
   .typeSection {
