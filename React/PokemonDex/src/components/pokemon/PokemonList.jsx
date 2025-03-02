@@ -16,6 +16,7 @@ const PokemonList = ({ pokemonsData, onOpenModal }) => {
           color={item.color}
         />
       ))}
+      {pokemonsData.length === 0 && <p className="none">데이터가 없습니다.</p>}
     </PokemonListWrapper>
   );
 };
@@ -32,4 +33,10 @@ const PokemonListWrapper = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 
   justify-content: center;
+
+  .none {
+    padding-top: 50px;
+    text-align: center;
+    color: #989898;
+  }
 `;
