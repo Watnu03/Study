@@ -2,15 +2,14 @@ import React from "react";
 import replaceTypeName from "../../util/replace-ko-type-name";
 import styled from "styled-components";
 
-const isSelected = false;
-
-const PokemonType = ({ name }) => {
+const PokemonType = ({ name, isSelected, onTypeTagClick }) => {
   const { name_kr, color } = replaceTypeName(name);
 
   return (
     <PokemonTypeItem
       color={color}
       className={`${isSelected ? "pokemonType_on" : ""} `}
+      onClick={onTypeTagClick}
     >
       <p>{name_kr}</p>
     </PokemonTypeItem>
