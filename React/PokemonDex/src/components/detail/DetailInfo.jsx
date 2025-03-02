@@ -1,5 +1,6 @@
+import React, { useState } from "react";
+
 import PokemonType from "../pokemon/PokemonType";
-import React from "react";
 import styled from "styled-components";
 
 const replaceSize = (size) => {
@@ -9,6 +10,7 @@ const replaceSize = (size) => {
 const DetailInfo = ({
   description,
   frontImg,
+  backImg,
   types,
   genus,
   height,
@@ -19,10 +21,28 @@ const DetailInfo = ({
     e.stopPropagation();
   };
 
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  const handleFlip = () => {
+    setIsFlipped(!isFlipped);
+  };
+
   return (
     <DetailInfoWrapper onClick={handleClickClose}>
-      <div className="pokemon-info img-box">
-        <img src={frontImg} />
+      <div className="pokemon-info">
+        <div
+          className={`flip-card ${isFlipped ? "flipped" : ""}`}
+          onClick={handleFlip}
+        >
+          <div className="flip-card-inner">
+            <div className="flip-card-front">
+              <img src={frontImg} alt="Front" />
+            </div>
+            <div className="flip-card-back">
+              <img src={backImg} alt="Back" />
+            </div>
+          </div>
+        </div>
       </div>
       <div className="pokemon-info type">
         {types.map((item, index) => (
@@ -72,24 +92,53 @@ const DetailInfoWrapper = styled.div`
     width: 100%;
     margin-bottom: 18px;
     text-align: center;
+    perspective: 1000px; //3d 효과 영역설정
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  .img-box {
+
+  .flip-card {
     width: 60%;
-    height: 250px;
-    margin-top: 30px;
+    height: 300px;
+    perspective: 1000px;
     cursor: pointer;
-    transform-style: preserve-3d;
+  }
+
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
     transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(15deg); //호버시 살짝 회전
+  }
 
-    &:hover {
-      transform: rotateY(25deg);
-    }
+  .flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg); //클릭시 180도 회전(뒤짚기)
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; //뒷면 숨기기
+  }
+
+  .flip-card-front img,
+  .flip-card-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .flip-card-back {
+    transform: rotateY(180deg); //뒷면 이미지를 미리 180도 회전시켜놓기
   }
 
   .type {
