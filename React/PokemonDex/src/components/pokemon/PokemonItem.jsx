@@ -1,11 +1,18 @@
-import React, { useEffect, useState } from "react";
-
 import PokemonButton from "../button/PokemonButton";
 import PokemonType from "./PokemonType";
 import replaceDexId from "../../util/replace-dex-id";
 import styled from "styled-components";
 
-const PokemonItem = ({ id, name, frontImg, types, onClickItem, color }) => {
+const PokemonItem = ({
+  id,
+  name,
+  frontImg,
+  types,
+  onClickLike,
+  onClickItem,
+  color,
+  isFavorite,
+}) => {
   return (
     <PokemonItemWrapper onClick={onClickItem} $bgColor={color}>
       <div className="info">
@@ -15,7 +22,7 @@ const PokemonItem = ({ id, name, frontImg, types, onClickItem, color }) => {
           <h5>{name}</h5>
         </span>
         <span>
-          <PokemonButton />
+          <PokemonButton isFavorite={isFavorite} onClickLike={onClickLike} />
         </span>
       </div>
       <div className="img">
@@ -67,30 +74,32 @@ const PokemonItemWrapper = styled.div`
       text-align: left;
       justify-content: flex-start;
     }
+
     span:nth-child(2) {
       width: 50%;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+
+      p {
+        max-width: 100px;
+        padding: 5px 20px;
+        border-radius: 20px;
+        font-size: 14px;
+        color: #fff;
+        background-color: ${(props) =>
+          props.$bgColor === "white" ? "#000" : props.$bgColor || "#000"};
+        opacity: 0.8;
+      }
+      h5 {
+        font-size: 20px;
+        margin: 5px 0;
+      }
     }
+
     span:last-child {
       width: 25%;
       justify-content: flex-end;
-    }
-
-    p {
-      max-width: 100px;
-      padding: 5px 20px;
-      border-radius: 20px;
-      font-size: 14px;
-      color: #fff;
-      background-color: ${(props) =>
-        props.$bgColor === "white" ? "#000" : props.$bgColor || "#000"};
-      opacity: 0.8;
-    }
-    h5 {
-      font-size: 20px;
-      margin: 5px 0;
     }
   }
 

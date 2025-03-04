@@ -2,7 +2,7 @@ import PokemonItem from "./PokemonItem";
 import React from "react";
 import styled from "styled-components";
 
-const PokemonList = ({ pokemonsData, onOpenModal }) => {
+const PokemonList = ({ pokemonsData, onClickLike, onOpenModal }) => {
   return (
     <PokemonListWrapper>
       {pokemonsData.map((item) => (
@@ -12,8 +12,10 @@ const PokemonList = ({ pokemonsData, onOpenModal }) => {
           name={item.name}
           frontImg={item.frontImg}
           types={item.types}
-          onClickItem={() => onOpenModal(item.id)}
           color={item.color}
+          isFavorite={item.isFavorite}
+          onClickItem={() => onOpenModal(item.id)}
+          onClickLike={() => onClickLike(item.id)}
         />
       ))}
       {pokemonsData.length === 0 && <p className="none">데이터가 없습니다.</p>}
@@ -30,9 +32,8 @@ const PokemonListWrapper = styled.div`
   display: grid;
   gap: 15px;
   /*250px 이상일 때 한 줄에 최대한 많은 아이템을 배치 (화면 크기에 따라 자동 조정) */
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-
-  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  justify-items: start;
 
   .none {
     padding-top: 50px;
