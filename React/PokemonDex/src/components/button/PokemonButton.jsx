@@ -1,11 +1,13 @@
-import React from "react";
 import styled from "styled-components";
 
-const isAble = true;
-const PokemonButton = () => {
+const PokemonButton = ({ isFavorite, onClickLike }) => {
+  const onClickPokemonLike = (e) => {
+    e.stopPropagation();
+    onClickLike();
+  };
   return (
-    <Button>
-      {isAble ? (
+    <Button onClick={onClickPokemonLike}>
+      {isFavorite ? (
         <img src="/assets/icon-able.png" className="button_able" />
       ) : (
         <img src="/assets/icon-disable.png" className="button_disable" />
