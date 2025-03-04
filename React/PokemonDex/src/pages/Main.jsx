@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import DetailModal from "../components/modal/DetailModal";
+import { FAVORITE } from "../store/pokemonSlice";
 import FilterMenu from "../components/common/FilterMenu";
 import PokemonList from "../components/pokemon/PokemonList";
 import styled from "styled-components";
-import { useSelector } from "react-redux";
+import useModal from "../hooks/useModal";
 import useSort from "../hooks/useSort";
 
 const Main = () => {
+  const dispatch = useDispatch();
   // 리덕스 상태에서 pokemonData를 가져오기
   const pokemonsData = useSelector((state) => state.pokemon.pokemonData);
   // 필터링된 데이터 상태관리
   const [filteredPokemonData, setFilteredPokemonData] = useState(pokemonsData);
 
+  //TODO: 태그 선택시
   // 태그 검색저장 상태관리
   const [selectType, setSelectType] = useState([]);
 
@@ -44,6 +48,7 @@ const Main = () => {
     }
   }, [selectType, pokemonsData]);
 
+  //TODO: 정렬 selector 선택시
   // useSort 훅을 사용하여 초기 데이터와 정렬 함수 받기
   const [sortedData, sortData] = useSort(filteredPokemonData || pokemonsData);
 
@@ -57,23 +62,18 @@ const Main = () => {
     sortData(sortType);
   };
 
-  //모달
-  const [closeModal, setCloseModal] = useState(false);
-  const [selectPokemon, setSelectPokemon] = useState(null);
-
-  const onOpenModal = (pokemonId) => {
-    setSelectPokemon(pokemonId);
-    setCloseModal(true);
-    // body 스크롤 방지
-    document.body.style.overflow = "hidden";
+  //TODO: 찜목록에 추가/삭제
+  const onClickLike = (id) => {
+    const selectedPokemon = sortedData.find((pokemon) => pokemon.id === id);
+    console.log("dd");
+    // whishList에 업데이트
+    if (sortedData.find((item) => item.id === id)) {
+      dispatch(FAVORITE(selectedPokemon));
+    }
   };
 
-  const onCloseModal = () => {
-    setSelectPokemon(null);
-    setCloseModal(false);
-    // body 스크롤 방지
-    document.body.style.overflow = "";
-  };
+  //TODO: 모달
+  const { isOpen, selectedData, openModal, closeModal } = useModal();
 
   return (
     <>
@@ -85,11 +85,15 @@ const Main = () => {
           handleSortChange={handleSortChange}
           selectedSortType={selectedSortType}
         />
-        <PokemonList pokemonsData={sortedData} onOpenModal={onOpenModal} />
+        <PokemonList
+          pokemonsData={sortedData}
+          onClickLike={onClickLike}
+          onOpenModal={openModal}
+        />
       </MainWrapper>
 
-      {closeModal && (
-        <DetailModal pokemon={selectPokemon} onCloseModal={onCloseModal} />
+      {isOpen && (
+        <DetailModal pokemon={selectedData} onCloseModal={closeModal} />
       )}
     </>
   );
